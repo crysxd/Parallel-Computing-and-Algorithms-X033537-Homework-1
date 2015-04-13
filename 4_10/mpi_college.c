@@ -24,6 +24,28 @@ void get_digits(uint32_t number, uint8_t *digits) {
 }
 
 bool is_valid_id(uint32_t number) {
+	/* get digits */
+	uint8_t digits[6];
+	get_digits(number, digits);
+
+	/* Criteria 1 is automatically fulfilled by START = 99999+1 */
+
+	/* Check criteria 2: Two consecutive number must not be the same */
+	for(uint8_t i=1; i<sizeof(digits); i++) {
+		if(digits[i-1] == digits[i])
+			return false;
+	} 
+
+	/* Check criteria 3: digit sum must not be 7, 11 or 13 */
+	uint8_t sum = 0;
+	for(uint8_t i=0; i<sizeof(digits); i++) {
+		sum+=digits[i];
+	}
+
+	if(sum == 7 || sum == 13 || sum == 13) {
+		return false;
+	}
+
 	return true;
 }
 
