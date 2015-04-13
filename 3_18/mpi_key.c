@@ -4,7 +4,7 @@
  * Description: Homework Cahpter 4 Excercise 10
  */
 
-#define LIST_SIZE 65536
+#define LIST_SIZE 255
 
 #include <stdio.h>
 #include <mpi.h>
@@ -25,7 +25,7 @@
 	/* Generate list */
 	uint32_t a[LIST_SIZE] = {0};
 	for(uint32_t i=0; i<LIST_SIZE; i++) {
-		a[i] = rand() % (uint32_t) -1;
+		a[i] = i;
 	}
 
 	/* Calculate range */
@@ -51,26 +51,28 @@
 
 	/* Code for worker process */
 	if (rank == 0) {
-		uint32_t remote_keys;
-		uint32_t keys[process_count*2];
+		/* Create buffer array for received keys */
+		uint32_t keys_count = process_count * 2;
+		uint32_t keys[keys_count];
+
+		/* Enter local keys */
+		keys[0] = largest_keys[0];
+		keys[1] = largest_keys[1];
 
 		/* Wait for process_count-1 processes to finish and add their results to
-		   local sum */
-		for (int source = 1; source < process_count; source++) {
-			MPI_Recv(&remote_keys, 1, MPI_INTEGER8, source, 0, 
+		   received keys */
+		for (int source = 1; source<process_count; source++) {
+			MPI_Recv(keys+source*2, 1, MPI_INTEGER8, source, 0, 
 				MPI_COMM_WORLD, MPI_STATUS_IGNORE);
-			
-			keys[source] = *((uint32_t *) &remote_keys);
-			keys[source+1] = *(((uint32_t *) &remote_keys) + 1);
 
 			printf("Keys received: %d > %d\n", keys[source], keys[source+1]);
 		}
 
-		/* Sort the received keys and selected second largest */
-		for(uint32_t i=0; i<sizeof(keys); i++) {
+		/* Sort the received keys descanding using bubble sort */
+		for(uint32_t i=0; i<keys_count; i++) {
 			bool swapped = false;
 
-			for(uint32_t j=0; j<sizeof(keys); j++) {
+			for(uint32_t j=0; j<keys_count; j++) {
 				if(keys[i] > keys[j]) {
 					uint32_t buf = keys[i];
 					keys[i] = keys[j];
@@ -84,7 +86,9 @@
 			}
 		}
 
-		printf("Second largest key: %d\n", keys[process_count * 2 - 2]);
+		/* Select the second largest key and print result */
+		printf("Second largest key: %d\n", keys[1]);
+
 	} 
 
 	/* Code for worker process */
