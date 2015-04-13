@@ -1,0 +1,17 @@
+When only the first occurence of the pattern should be found we can further 
+split the text into more tiny chunks of two, four or eight times the size of the 
+pattern. Of course these little chunks must overlap at least with the length of 
+the pattern. 
+
+Each process would only search in one of those tiny chunks for the pattern.
+After a process has finished his chunk he sends a "done" message to the master.
+If the process has found a occurence of the pattern he send the location to the
+master. Each process then waits for the master to send him the next chunk. The
+master does so if he receives no "found" message from any of the processes. If
+he received a "found" message, he informs the other worker processes that the 
+occurence was found and terminates them.
+
+This scheme allows us to only do the work necessary. If one of the processes 
+finds the pattern in his first chunk, the rest of the text has not to be
+searched. Also only the really needed parts of the text are send to the worker 
+processes, therefor the communication is minized.
