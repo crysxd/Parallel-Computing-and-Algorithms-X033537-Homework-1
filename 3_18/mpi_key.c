@@ -49,7 +49,7 @@
 	printf("Keys in range [%d, %d] found: %d > %d\n", 
 		start, end, largest_keys[0], largest_keys[1]);
 
-	/* Code for worker process */
+	/* Code for master process */
 	if (rank == 0) {
 		/* Create buffer array for received keys */
 		uint32_t keys_count = process_count * 2;

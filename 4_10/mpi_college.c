@@ -71,7 +71,7 @@ int main(int argc, char **argv) {
 
 	printf("%d acceptable IDs found in range [%d, %d].\n", hits, start, end);
 
-	/* Code for worker process */
+	/* Code for master process */
 	if (rank == 0) {
 		uint32_t remote_hits;
 

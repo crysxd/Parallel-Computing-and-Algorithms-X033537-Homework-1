@@ -53,7 +53,7 @@ int main(int argc, char **argv) {
 	printf("Calculated range [%f, %f], partitial sum: %f\n", 
 		start*step_width, end*step_width, sum);
 
-	/* Code for worker process */
+	/* Code for master process */
 	if (rank == 0) {
 		double partSum;
 		int source;
