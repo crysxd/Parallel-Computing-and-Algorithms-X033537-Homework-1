@@ -12,6 +12,7 @@
 #include <math.h>
 #include <stdbool.h>
 #include <inttypes.h>
+#include <stdlib.h>
 
  int main(int argc, char **argv) {
  	int32_t process_count, rank;
@@ -23,13 +24,15 @@
 
 	/* Generate list */
 	uint32_t a[LIST_SIZE] = {0};
+	for(uint32_t i=0; i<LIST_SIZE; i++) {
+		a[i] = rand() % (uint32_t) -1;
+	}
 
 	/* Calculate range */
  	uint32_t start = (LIST_SIZE / process_count) * rank + 
 		((LIST_SIZE % process_count) < rank ? (LIST_SIZE % process_count) : rank);
 	uint32_t end = start + (LIST_SIZE / process_count) + 
 		((LIST_SIZE % process_count) > rank) - 1;
-
 	uint32_t largest_keys[2] = {0};
 
 	/* Iterate over range and ssearch largest and second largest key */
@@ -41,7 +44,6 @@
 			largest_keys[1] = largest_keys[0];
 			largest_keys[0] = a[i];
 		}
-
 	}
 
 	printf("Keys in range [%d, %d] found: %d > %d\n", 
@@ -63,6 +65,26 @@
 
 			printf("Keys received: %d > %d\n", keys[source], keys[source+1]);
 		}
+
+		/* Sort the received keys and selected second largest */
+		for(uint32_t i=0; i<sizeof(keys); i++) {
+			bool swapped = false;
+
+			for(uint32_t j=0; j<sizeof(keys); j++) {
+				if(keys[i] > keys[j]) {
+					uint32_t buf = keys[i];
+					keys[i] = keys[j];
+					keys[j] = buf;
+					swapped = true;
+				} 
+			}
+
+			if(!swapped) {
+				break;
+			}
+		}
+
+		printf("Second largest key: %d\n", keys[process_count * 2 - 2]);
 	} 
 
 	/* Code for worker process */
