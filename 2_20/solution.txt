@@ -1,0 +1,24 @@
+SISD
+================================================================================
+Single-core CPUs, e.g. Atmel ATmega32
+System: Arduino Uno
+
+
+SIMD
+================================================================================
+Graphics Processing Units, e.g. nVidia GTX 980 
+System: Alienware X51
+
+
+MISD
+================================================================================
+Uncommon architecture, sometimes used for fault tolerance in critical
+environments. 
+System: Nothing found specific. According to Wikipedia used in Space-Shuttels 
+computers.
+
+
+MIMD
+================================================================================
+Modern multicore processors, e.g. Intel Xeon E5
+System: Apple Mac Pro
