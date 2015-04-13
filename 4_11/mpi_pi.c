@@ -38,10 +38,10 @@ int main(int argc, char **argv) {
 
 	/* Calculate boundaries and step width */
 	double step_width = (RANGE_END - RANGE_START) / STEPS;
-	double start = (STEPS / process_count) * rank + 
-		((STEPS % process_count) < rank ? (STEPS % process_count) : rank);
+	double start = RANGE_START + (STEPS / process_count) * rank + 
+		((STEPS % process_count) < rank ? (STEPS % process_count) : rank) + 1;
 	double end = start + (STEPS / process_count) + 
-		((STEPS % process_count) > rank);
+		((STEPS % process_count) > rank) - 1;
 	double sum = 0.0;
 
 	/* Iterate over range and sum up single slices*/
