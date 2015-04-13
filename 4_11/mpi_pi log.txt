@@ -1,0 +1,85 @@
+MacBook-Air:Desktop wuerthnc$ mpirun -np 1 mpi_pi
+Calculated range [0.000000, 1.000000], partitial sum: 3.141595
+All parts received. Result: 3.141595
+Time needed using 1 processes: 55.132812ms
+MacBook-Air:Desktop wuerthnc$ mpirun -np 2 mpi_pi
+Calculated range [0.000000, 0.500000], partitial sum: 1.854594
+Calculated range [0.500000, 1.000000], partitial sum: 1.287004
+All parts received. Result: 3.141598
+Time needed using 2 processes: 45.780029ms
+MacBook-Air:Desktop wuerthnc$ mpirun -np 3 mpi_pi
+Calculated range [0.666667, 1.000000], partitial sum: 0.789583
+Calculated range [0.000000, 0.333334], partitial sum: 1.287008
+Calculated range [0.333334, 0.666667], partitial sum: 1.065009
+All parts received. Result: 3.141601
+Time needed using 3 processes: 49.020020ms
+MacBook-Air:Desktop wuerthnc$ mpirun -np 4 mpi_pi
+Calculated range [0.000000, 0.250000], partitial sum: 0.979918
+Calculated range [0.250000, 0.500000], partitial sum: 0.874679
+Calculated range [0.500000, 0.750000], partitial sum: 0.719417
+Calculated range [0.750000, 1.000000], partitial sum: 0.567590
+All parts received. Result: 3.141604
+Time needed using 4 processes: 57.604980ms
+MacBook-Air:Desktop wuerthnc$ mpirun -np 5 mpi_pi
+Calculated range [0.600000, 0.800000], partitial sum: 0.537288
+Calculated range [0.800000, 1.000000], partitial sum: 0.442631
+Calculated range [0.400000, 0.600000], partitial sum: 0.639655
+Calculated range [0.200000, 0.400000], partitial sum: 0.732447
+Calculated range [0.000000, 0.200000], partitial sum: 0.789586
+All parts received. Result: 3.141607
+Time needed using 5 processes: 75.033936ms
+MacBook-Air:Desktop wuerthnc$ mpirun -np 6 mpi_pi
+Calculated range [0.000000, 0.166667], partitial sum: 0.660600
+Calculated range [0.166667, 0.333334], partitial sum: 0.626412
+Calculated range [0.833334, 1.000000], partitial sum: 0.362640
+Calculated range [0.500001, 0.666668], partitial sum: 0.497423
+Calculated range [0.666668, 0.833334], partitial sum: 0.426943
+Calculated range [0.333334, 0.500001], partitial sum: 0.567592
+All parts received. Result: 3.141610
+Time needed using 6 processes: 86.452881ms
+MacBook-Air:Desktop wuerthnc$ mpirun -np 7 mpi_pi
+Calculated range [0.142858, 0.285715], partitial sum: 0.545613
+Calculated range [0.285715, 0.428572], partitial sum: 0.506371
+Calculated range [0.428572, 0.571429], partitial sum: 0.457020
+Calculated range [0.000000, 0.142858], partitial sum: 0.567595
+Calculated range [0.571429, 0.714286], partitial sum: 0.404416
+Calculated range [0.857143, 1.000000], partitial sum: 0.307089
+Calculated range [0.714286, 0.857143], partitial sum: 0.353509
+All parts received. Result: 3.141614
+Time needed using 7 processes: 89.959961ms
+MacBook-Air:Desktop wuerthnc$ mpirun -np 8 mpi_pi
+Calculated range [0.375000, 0.500000], partitial sum: 0.419511
+Calculated range [0.250000, 0.375000], partitial sum: 0.455172
+Calculated range [0.500000, 0.625000], partitial sum: 0.379810
+Calculated range [0.875000, 1.000000], partitial sum: 0.266275
+Calculated range [0.750000, 0.875000], partitial sum: 0.301318
+Calculated range [0.125000, 0.250000], partitial sum: 0.482498
+Calculated range [0.000000, 0.125000], partitial sum: 0.497424
+Calculated range [0.625000, 0.750000], partitial sum: 0.339610
+All parts received. Result: 3.141617
+Time needed using 8 processes: 100.266113ms
+MacBook-Air:Desktop wuerthnc$ mpirun -np 9 mpi_pi
+Calculated range [0.333334, 0.444445], partitial sum: 0.385898
+Calculated range [0.444445, 0.555556], partitial sum: 0.355499
+Calculated range [0.111112, 0.222223], partitial sum: 0.432050
+Calculated range [0.222223, 0.333334], partitial sum: 0.412329
+Calculated range [0.777778, 0.888889], partitial sum: 0.262399
+Calculated range [0.000000, 0.111112], partitial sum: 0.442636
+Calculated range [0.555556, 0.666667], partitial sum: 0.323619
+Calculated range [0.666667, 0.777778], partitial sum: 0.292164
+Calculated range [0.888889, 1.000000], partitial sum: 0.235025
+All parts received. Result: 3.141620
+Time needed using 9 processes: 108.708008ms
+MacBook-Air:Desktop wuerthnc$ mpirun -np 10 mpi_pi
+Calculated range [0.000000, 0.100000], partitial sum: 0.398679
+Calculated range [0.200000, 0.300000], partitial sum: 0.376249
+Calculated range [0.900000, 1.000000], partitial sum: 0.210334
+Calculated range [0.500000, 0.600000], partitial sum: 0.307091
+Calculated range [0.400000, 0.500000], partitial sum: 0.332568
+Calculated range [0.600000, 0.700000], partitial sum: 0.281229
+Calculated range [0.100000, 0.200000], partitial sum: 0.390911
+Calculated range [0.700000, 0.800000], partitial sum: 0.256062
+Calculated range [0.300000, 0.400000], partitial sum: 0.356202
+Calculated range [0.800000, 0.900000], partitial sum: 0.232299
+All parts received. Result: 3.141623
+Time needed using 10 processes: 132.369873ms
