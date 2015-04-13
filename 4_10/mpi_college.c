@@ -15,6 +15,14 @@
 #include <stdbool.h>
 #include <inttypes.h>
 
+void get_digits(uint32_t number, uint8_t *digits) {
+	/* Split number in digits and fill array backwards */
+	for(int i=0; i<6; i++) {
+		digits[5-i] = number % 10;
+		number /= 10;
+	}
+}
+
 bool is_valid_id(uint32_t number) {
 	return true;
 }
