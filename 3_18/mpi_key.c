@@ -1,7 +1,7 @@
 /*
- * mpi_college.c
+ * mpi_key.c
  * Author: Christian Würthner
- * Description: Homework Cahpter 4 Excercise 10
+ * Description: Homework Chapter 3 Exercise 18
  */
 
 #define LIST_SIZE 255

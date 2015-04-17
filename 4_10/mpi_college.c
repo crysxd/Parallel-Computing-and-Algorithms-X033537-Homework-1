@@ -1,7 +1,7 @@
 /*
  * mpi_college.c
  * Author: Christian Würthner
- * Description: Homework Cahpter 4 Excercise 10
+ * Description: Homework Chapter 4 Exercise 10
  */
 
 #define START 	99999
@@ -15,6 +15,7 @@
 #include <stdbool.h>
 #include <inttypes.h>
 
+/* Splits the number in an array of single digits */
 void get_digits(uint32_t number, uint8_t *digits) {
 	/* Split number in digits and fill array backwards */
 	for(int i=0; i<6; i++) {
@@ -23,6 +24,7 @@ void get_digits(uint32_t number, uint8_t *digits) {
 	}
 }
 
+/* Checks if the given number is a valid id */
 bool is_valid_id(uint32_t number) {
 	/* get digits */
 	uint8_t digits[6];
@@ -42,7 +44,7 @@ bool is_valid_id(uint32_t number) {
 		sum+=digits[i];
 	}
 
-	if(sum == 7 || sum == 13 || sum == 13) {
+	if(sum == 7 || sum == 11 || sum == 13) {
 		return false;
 	}
 

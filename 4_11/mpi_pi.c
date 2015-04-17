@@ -1,7 +1,7 @@
 /*
  * mpi_pi.c
  * Author: Christian Würthner
- * Description: Homework Cahpter 4 Excercise 11
+ * Description: Homework Chapter 4 Exercise 11
  */
 
 #define STEPS           1000000
